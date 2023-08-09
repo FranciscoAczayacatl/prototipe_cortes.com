@@ -1,0 +1,65 @@
+.modal{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(93, 214, 114, 0.733);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_login{
+  width: 30vw;
+  height: 80vh;
+  background-color: #FFF;
+  border-radius: 20px;
+}
+.img_cortes{
+  width: 30vw;
+  height: 32vh;
+  display:  flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.img_cortes img{
+  width: 19vw;
+  height: 30vh;
+}
+.form form{
+  width: 30vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form form p{
+  font-family: 'Edu SA Beginner', cursive;
+  font-weight: 400;
+  font-size: 3vh;
+  color: #051b7c;
+}
+
+.form input{
+  border: 2px solid rgb(0, 0, 0);
+  width: 15vw;
+  height: 4vh;
+  margin-bottom:3vh ;
+  border-radius: 14px;
+  text-align: center;
+  padding: 1vh;
+  
+}
+.form form button{
+  border: none;
+  background-color: cornflowerblue;
+  width: 15vh;
+  height: 7vh;
+  border-radius: 14px;
+  color: white;
+}
+.form button:active{
+  border: 1px solid black;
+  background-color: white;
+  color: cornflowerblue;
+}
