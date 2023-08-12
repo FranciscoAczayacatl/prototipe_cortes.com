@@ -1,0 +1,40 @@
+.box_datos{
+  margin-top: 2vh;
+}
+.ingresos{
+  display: flex;
+  gap: 1vw;
+}
+.ingresos div{
+  background-color: rgb(126, 204, 133);
+  border-radius: 5px;
+}
+.ingresos h4,h5{
+  text-align: center;
+  color: aliceblue;
+}
+.egresos{
+  display: flex;
+  gap: 1vw;
+}
+.egresos div{
+  background-color:rgb(202, 115, 115);
+  border-radius: 5px;
+}
+.egresos h4,h5{
+  text-align: center;
+  color: aliceblue;
+}
+.box_datos {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+.box_datos h2{
+  text-align: center;
+}
+
+.p{
+  text-align: center;
+  color: bisque;
+}

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setIsLogin} from './isLogin.slice';
+import { setRoleThunk } from "./role.slice";
 
 export const userSlice = createSlice({
     name: 'User',
@@ -12,13 +13,13 @@ export const userSlice = createSlice({
     }
 })
 
-export const loginThunk = (data) =>(dispatch) =>{
+export const loginThunk = (data) => (dispatch) =>{
 
   axios.post('http://localhost:8000/api/v1/auth/login', data)
       .then(response => {
         dispatch(setUser(response.data))
         dispatch(setIsLogin(true));
-        localStorage.setItem('token',response.data.token)
+        dispatch(setRoleThunk());
       })
       .catch(error => {
         if(error.response?.status===404){

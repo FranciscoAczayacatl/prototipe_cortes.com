@@ -1,8 +1,15 @@
+import { NavAdm } from "../components/NavAdm"
+import { OptionsAdm } from "../components/OptionsAdm"
+import { Totals } from "../components/Totals"
 
 
 const AdminDashBoard = () => {
   return (
-    <div>AdminDashBoard</div>
+    <>
+    <NavAdm/>
+    <OptionsAdm/>
+    <Totals/>
+    </>
   )
 }
 

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
@@ -10,11 +9,14 @@ import '../css/login.css'
 
 
 
+
 const Login = () => {
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  const roles = useSelector(state=>state.user.user?.role_id);
   const itslogin = useSelector(state=>state.isLogin);
   
 
@@ -51,13 +53,20 @@ const Login = () => {
     </div>
     )
   }
-  // const role =()=>{
-
-  // }
+  const role =()=>{
+    console.log(roles);
+    if(roles ==1){
+      navigate('/adm')
+    }else if(roles ==2){
+      navigate('/user')
+    }else{
+      console.log('error');
+    }
+  }
   return (
   <div>
     {
-      itslogin?  navigate('/adm'): loginPage()
+      itslogin?  role(): loginPage()
     }
   </div>
   )

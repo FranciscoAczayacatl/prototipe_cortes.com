@@ -1,0 +1,11 @@
+.boxBranch{
+  width: 100vw;
+  height: 40vh;
+  background-color: dimgrey;
+  margin-top: 2vh;
+}
+
+.boxBranch h1{
+  text-align: center;
+  color: white;
+}

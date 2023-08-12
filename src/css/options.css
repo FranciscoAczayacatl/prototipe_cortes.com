@@ -1,0 +1,59 @@
+.options_box{
+  display: flex;
+  width: 100vw;
+  height: 38vh;
+  gap: 1vw;
+  margin-top: 2vh;
+}
+.ingreso_box{
+  width: 49vw;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(27, 218, 27) ;
+  margin-left: 1vh;
+  gap: 1vh;
+}
+.egreso_box{
+  width: 50vw;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(245, 40, 40) ;
+  margin-right: 1vh;
+  gap: 1vh;
+}
+.ingreso_box h1{
+ color: rgb(20, 173, 33);
+}
+.egreso_box h1 {
+  color: brown;
+}
+
+textarea{
+  text-decoration: none;
+}
+
+button{
+  background-color: cadetblue;
+  border: none;
+  width: 5vw;
+  height: 5vh;
+
+  border-radius: 14px;
+  color:white ;
+}
+button:hover{
+  background-color: white;
+  color: cadetblue;
+  border: 1px solid cadetblue;
+}
+button:active{
+  background-color: white;
+  color: white;
+  border: 1px solid white;
+}
