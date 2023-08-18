@@ -1,11 +1,78 @@
+.branches{
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+}
+
 .boxBranch{
-  width: 100vw;
-  height: 40vh;
+  width: 23vw;
+  height: 24vh;
   background-color: dimgrey;
   margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
 }
 
 .boxBranch h1{
   text-align: center;
   color: white;
+  position: fixed;
+}
+.boxBranch img{
+  border-radius: 14px;
+  
+}
+.tin{
+  width: 50vw;
+  height: 25vh;
+}
+.zoom-image {
+  transition: transform 0.3s; /* Agrega una transición suave */
+}
+
+.zoom-image:hover {
+  transform: scale(1.1); /* Hace zoom al 110% en el hover */
+  opacity: .05;
+}
+.modal_show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.836);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  width: 80vw;
+  height: 80vh;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional styling for the modal content */
+.modalContent h1 {
+  margin-bottom: 10px;
+}
+
+.modalContent button {
+  background-color: #ff0000;
+  color: white;
+  width: 3vw;
+  height: 6vh;
+  cursor: pointer;
+  border-radius: 90%;
+  position: absolute;
+  left: 90vw;
+  top: 4vh;
 }

@@ -1,0 +1,48 @@
+
+.form_creates_usr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  margin: 2vh;
+}
+.menu_display{
+  display: flex;
+  gap: 5vw;
+  justify-content: center;
+  margin: 2vh;
+  
+}
+.form_create{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+ 
+}
+
+.buton{
+  width: 5vw;
+  height: 5vh;
+  overflow: hidden;
+  background-color: rgb(46, 46, 138);
+  margin: 2vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 14px;
+}
+.buton:hover{
+  background-color: white;
+  border: 1px solid rgb(46, 46, 138) ;
+  color: rgb(46, 46, 138);
+}
+
+.buton:active{
+  background-color: white;
+  border: 1px solid white ;
+  color: white;
+}

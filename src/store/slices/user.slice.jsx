@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setIsLogin} from './isLogin.slice';
 import { setRoleThunk } from "./role.slice";
+import { setIsLoading } from './isLoading.slice';
+
 
 export const userSlice = createSlice({
     name: 'User',
@@ -14,7 +16,7 @@ export const userSlice = createSlice({
 })
 
 export const loginThunk = (data) => (dispatch) =>{
-
+  dispatch(setIsLoading(true));
   axios.post('http://localhost:8000/api/v1/auth/login', data)
       .then(response => {
         dispatch(setUser(response.data))
@@ -24,10 +26,10 @@ export const loginThunk = (data) => (dispatch) =>{
       .catch(error => {
         if(error.response?.status===404){
           alert('credenciales incorrectas')
-      }else{
-        alert(error.response?.data.message)
+        }else if(error.response?.status===400){
+        alert(error.response?.data.message); 
       }
-      });
+      }).finally(() => dispatch(setIsLoading(false)));
 }
 
 

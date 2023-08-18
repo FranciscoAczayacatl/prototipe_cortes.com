@@ -1,41 +1,52 @@
-import '../css/totals.css'
+import  { useState } from 'react';
+import '../css/totals.css';
+import img from '../../public/uruapan.jpg'
+import img2 from '../../public/tin.jpg'
+import { DataUruapan } from './DataUruapan';
+import { DataTinguindin } from './DataTinguindin';
 
-const totals = [
-  { entry: 1000.00, discharge:-500.00, total:1500.00 ,result:'utilida',branch_id:1,date_id:1, id:1},
-  { entry: 1000.00, discharge:-500.00, total:1500.00 ,result:'utilida',branch_id:2,date_id:1 , id:2},
-  { entry: 1000.00, discharge:-500.00, total:1500.00 ,result:'utilida',branch_id:1,date_id:2 , id:3},
-  { entry: 1000.00, discharge:-500.00, total:1500.00 ,result:'utilida',branch_id:2,date_id:2 , id:4},
-  { entry: 1000.00, discharge:-500.00, total:1500.00 ,result:'utilida',branch_id:1,date_id:3 , id:5},
-  { entry: 1000.00, discharge:-500.00, total:1500.00 ,result:'utilida',branch_id:2,date_id:3 , id:6},
-  
-]
-const dates=[
-  {date:'2023-8-9', id:1},
-  {date:'2023-8-8', id:2},
-  {date:'2023-8-7', id:3}
-];
+
 
 export const Totals = () => {
+  // Estado para controlar si se muestra el modal de Uruapan
+  const [showUruapanModal, setShowUruapanModal] = useState(false);
 
-  const totalsU = totals.filter((total)=> total.branch_id ==1);
-  const totalsT = totals.filter((total)=> total.branch_id ==1);
+  // Estado para controlar si se muestra el modal de Tinguindin
+  const [showTinguindinModal, setShowTinguindinModal] = useState(false);
+
+  const uruapanClick = () => {
+    setShowUruapanModal(true);
+  };
+
+  const tinguindinClick = () => {
+    setShowTinguindinModal(true);
+  };
+
+  // Función para cerrar ambos modales
+  const closeModal = () => {
+    setShowUruapanModal(false);
+    setShowTinguindinModal(false);
+  };
+
   return (
-    <div >
-      <div className="boxBranch">
+    <div className='branches'>
+      <div className="boxBranch" onClick={uruapanClick} >
+      <img src={img} alt="" className="zoom-image"/>
         <h1>Uruapan</h1>
-          {
-            totalsU.map((totla)=>(
-              <div key={totla.id} >
-                <dir>
-                  <h3>{String(dates.filter((date)=>date.id == totla.date_id))}</h3>
-                </dir>
-              </div>
-            ))
-          }
+        
       </div>
-      <div className="boxBranch">
+      <div className="boxBranch" onClick={tinguindinClick}>
+      <img src={img2} alt="" className="zoom-image tin"/>
         <h1>Tinguindin</h1>
       </div>
+
+      {showUruapanModal && (
+        <DataUruapan closeModal={closeModal}/>
+      )}
+
+      {showTinguindinModal && (
+       <DataTinguindin closeModal={closeModal}/>
+      )}
     </div>
-  )
-}
+  );
+};

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import '../css/datosIE.css'
-import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 function formatDate(dateString) {
@@ -8,16 +7,13 @@ function formatDate(dateString) {
   return new Intl.DateTimeFormat('es', options).format(new Date(dateString));
 }
 
-export const DatosIngresoEgreso = () => {
-
+// eslint-disable-next-line react/prop-types
+export const DataTinguindin = ({closeModal}) => {
   const [totals, setTotals] = useState([]);
-  const branch =useSelector(state=>state.user.user.branch_id);
-
-  
   const updateData = async () => {
     try {
       const res = await axios.post('http://localhost:8000/api/v1/totals', {
-        branch_id: branch
+        branch_id: 2
       });
       setTotals(res.data.result);
     } catch (error) {
@@ -31,7 +27,11 @@ export const DatosIngresoEgreso = () => {
   const sortedData = totals.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   console.log(sortedData);
   return (
-    <div className="box_datos" >
+    <div className='modal_show'>
+    <div className='modalContent'>
+      <h1>Tinguindin</h1>
+      <button onClick={closeModal}>X</button>
+      <div className="box_datos" >
       {
         sortedData.map((items) =>(
           <div key={items.id} className='table'>
@@ -60,5 +60,7 @@ export const DatosIngresoEgreso = () => {
         ))
       }
     </div>
+    </div>
+  </div>
   )
 }

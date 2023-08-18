@@ -1,10 +1,112 @@
+import { setIsLoading } from "../store/slices/isLoading.slice";
+import axios from 'axios';
+import '../css/options.css'
+import { useForm,Controller } from 'react-hook-form';
+import { useDispatch} from 'react-redux';
+import "../css/createusr.css"
 
+const defaultValues = {
+  nombres: '',
+  apellidos: '',
+  email:'',
+  password:'',
+  opcion2:'',
+  opcion:'', 
+}
 
 export const CreateUser = () => {
-  
-  return (
-    <div className="modal">
+  const { register, handleSubmit, reset, control } = useForm();
+  const dispatch = useDispatch();
+
+  const handleCreate = async(dates) =>{
+    alert('entrto')
+
+    const data = {
+      firstname:dates.nombres,
+      lastname: dates.apellidos,
+      email: dates.email,
+      password: dates.password,
+      role_id: Number(dates.opcion2),
+      branch_id: Number(dates.opcion)
+    }
+    console.log(data);
+    dispatch(setIsLoading(true));
     
-    </div>
+    await axios.post('http://localhost:8000/api/v1/auth/register',data)
+    .then(response => {
+      console.log(response);
+      alert('usuario creado')
+    })
+    .catch(error => {
+      if(error.response?.status===404){
+        console.log(error);
+    }else{
+      alert(error.response?.data.message)
+    }
+    })
+    .finally(()=> dispatch(setIsLoading(false)))
+    reset(defaultValues);
+  }
+  return (
+    <form   className="form_create">
+      <div className="form_creates_usr">
+        <div>
+           <h3 htmlFor="nombres">nombres</h3>
+          <input type="text"  id="nombres" {...register('nombres')} required/>
+        </div>
+        <div>
+          <h3 htmlFor="apellidos" >apellidos</h3>
+          <input type="text"  id="apellidos" {...register('apellidos')} required/>
+        </div>
+      </div>
+      <div className="form_creates_usr">
+        <div>
+          <h3 htmlFor="email">email</h3>
+          <input type="email"  id="email" {...register('email')} required/>
+        </div>
+        <div>
+          <h3 htmlFor="password">password</h3>
+          <input type="password"  id="password" {...register('password')} required/>
+        </div>
+      </div>
+      <div className="menu_display">
+        <div>
+          <h3 htmlFor="rol">rol</h3>
+          <Controller
+            name="opcion2"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => (
+              <select {...field}>
+                <option value="">Seleccione un rol</option>
+                <option value="1">administrador</option>
+                <option value="2">usuario</option>
+              </select>
+              )}
+            />
+        </div>
+          <div>
+          <h3 htmlFor="sucursal">sucursal</h3>
+          <Controller
+            name="opcion"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => (
+              <select {...field}>
+                <option value="">Seleccione una sucursal</option>
+                <option value="1">Uruapan</option>
+                <option value="2">Tinguindin</option>
+              </select>
+              )}
+            />
+          </div>
+      </div>
+      
+        <br />
+        <div className="buton" onClick={handleSubmit(handleCreate)}   role="button"
+        tabIndex={0}>Submit</div>
+    </form>
   )
 }
