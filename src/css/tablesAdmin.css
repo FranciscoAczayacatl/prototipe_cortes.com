@@ -1,44 +1,49 @@
-.branches{
+.box_datos_adm{
   margin-top: 5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
 }
+.date{
 
-.boxBranch{
-  width: 23vw;
-  height: 24vh;
-  background-color: dimgrey;
-  margin-top: 2vh;
+  height: 8vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px solid black;
+}
+.table{
+  width: 17vw;
+  border: 1px solid black;
+  padding: 2vh;
+  margin-top: 1px;
+  background-color: white;
   border-radius: 14px;
 }
 
-.boxBranch h1{
-  text-align: center;
-  color: white;
-  position: fixed;
+.entry{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.boxBranch img{
-  border-radius: 14px;
-  
+.entry h5{
+  color: green;
 }
-.tin{
-  width: 50vw;
-  height: 25vh;
-}
-.zoom-image {
-  transition: transform 0.3s; /* Agrega una transición suave */
+.discharge{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.zoom-image:hover {
-  transform: scale(1.1); /* Hace zoom al 110% en el hover */
-  opacity: .05;
+.discharge h5{
+  color: brown;
 }
+.total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .modal_show {
   position: fixed;
   top: 0;
@@ -58,8 +63,6 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  overflow:scroll;
 }
 
 /* Additional styling for the modal content */
@@ -77,4 +80,7 @@
   position: absolute;
   left: 90vw;
   top: 4vh;
+}
+.form_create h1{
+  margin-bottom: 2vh;
 }

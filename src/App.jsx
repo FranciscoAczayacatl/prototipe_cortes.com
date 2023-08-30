@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import { BrowserRouter,Routes,Route} from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import LoadingScreen from './components/LoadingScreen';
+import { TablesDetail } from './pages/TablesDetail';
 
 function App() {
   const isLoading=useSelector(state=>state.isLoading);
@@ -20,6 +21,7 @@ function App() {
         <Route element={<ProtectedRoutes/>}>
           <Route path='/adm' element={<AdminDashBoard/>}/>
           <Route path='/user' element={<UserDashBoard/>}/>
+          <Route path='/tables/:createdAt/:id/:branch_id' element={<TablesDetail/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

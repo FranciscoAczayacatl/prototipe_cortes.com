@@ -1,6 +1,6 @@
 .box_datos{
   margin-top: 5vh;
-  display: flex;
+  display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: space-around;
 }

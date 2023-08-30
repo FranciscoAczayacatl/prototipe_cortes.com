@@ -6,7 +6,8 @@
   margin-top: 2vh;
 }
 .ingreso_box{
-  width: 49vw;
+  width: 50vw;
+  height: 40vh;
   border-radius: 14px;
   display: flex;
   flex-direction: column;
@@ -18,6 +19,7 @@
 }
 .egreso_box{
   width: 50vw;
+  height: 40vh;
   border-radius: 14px;
   display: flex;
   flex-direction: column;

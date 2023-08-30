@@ -54,7 +54,6 @@ const Login = () => {
     )
   }
   const role =()=>{
-    console.log(roles);
     if(roles ==1){
       navigate('/adm')
     }else if(roles ==2){

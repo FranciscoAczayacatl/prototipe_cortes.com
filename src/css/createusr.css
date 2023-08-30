@@ -5,10 +5,11 @@
   align-items: center;
   gap: 5vw;
   margin: 2vh;
+  
 }
 .menu_display{
   display: flex;
-  gap: 5vw;
+  gap: 10vw;
   justify-content: center;
   margin: 2vh;
   
@@ -45,4 +46,51 @@
   background-color: white;
   border: 1px solid white ;
   color: white;
+}
+.inputs_created{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.inputs_created input{
+  width: 15vw;
+  height: 3vh;
+  border-radius: 14px;
+  border: 1px solid ;
+  margin-top: 1vh;
+  text-align: center;
+  padding: 1vh;
+}
+
+.options_adm_box{
+  margin-top: 3vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+
+.modal_create {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.836);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.menu_display div{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1vh;
+}
+.modal-content{
+  width: 80vw;
+  height: 65vh;
+  background-color: rgb(245, 224, 224);
 }

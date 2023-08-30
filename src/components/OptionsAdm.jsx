@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import "../css/optionsAdm.css";
-import "../css/modalcreateuser.css";
+
 import { CreateUser } from "./CreateUser";
 import { ViewUsers } from "./ViewUsers";
 // import { DeleteUser } from "./DeleteUser"; // Importa el componente de eliminación de usuario

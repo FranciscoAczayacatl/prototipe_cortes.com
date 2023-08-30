@@ -1,17 +1,18 @@
 import axios from 'axios';
 import '../css/options.css'
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsLoading } from '../store/slices/isLoading.slice';
 
 
 const defaultValues = {
-  concepto: '',
+  detalle: '',
   entry: ''
 }
 export const Discharge = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, control } = useForm();
   const branch =useSelector(state=>state.user.user.branch_id);
+  const user_id =useSelector(state=>state.user.user.id);
   const dispatch = useDispatch();
 
 
@@ -19,6 +20,7 @@ export const Discharge = () => {
     
     dispatch(setIsLoading(true));
     data.branch_id =  branch
+    data.user_id = user_id
     axios.post('http://localhost:8000/api/v1/discharges',data)
     .then(response => {
       console.log(response);
@@ -38,8 +40,23 @@ export const Discharge = () => {
   return (
     <form className="egreso_box" onSubmit={handleSubmit(submitDischarge)}>
     <h1>Egreso:</h1>
-      <h3 htmlFor="concepto">Concepto:</h3>
-      <textarea name="" id="concepto" cols="55" rows="2" {...register('concepto')}></textarea>
+    <Controller
+            name="clasificasion"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => (
+              <select {...field}>
+                <option value="">Seleccione clasificasion</option>
+                <option value="venta">Venta</option>
+                <option value="costo">Costo</option>
+                <option value="gastos">Gastos</option>
+                <option value="otros gastos">Otros Gastos</option>
+              </select>
+              )}
+            />
+      <h3 htmlFor="detalle">Detalle:</h3>
+      <textarea name="detalle" id="detalle" cols="55" rows="2" {...register('detalle')}></textarea>
       <h3 htmlFor="entry">Total:</h3>
       <input type="text"  id="entry" {...register('entry')}/>
       <br />
