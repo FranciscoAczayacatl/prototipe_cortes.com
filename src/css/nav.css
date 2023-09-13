@@ -2,7 +2,90 @@
   background-color: rgba(93, 214, 114, 0.733);
   width: 100vw;
   height: 7vh;
+  display: flex;
+  justify-content: space-between;
 }
 .nav_container img{
   width: 4vw;
+}
+
+.nav_container h1{
+  text-align: center;
+  color: white;
+}
+
+.btn_options_nav{
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+  background-color: #5f9ea0;
+  color: white;
+  border-radius: 14px;
+}
+.btn_options_nav:hover{
+  background-color: white;
+  color: cadetblue;
+}
+
+.btn_options_nav:active{
+  opacity: 0;
+}
+.container_bnt_options_nav{
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vh;
+}
+.menu{
+  position: fixed;
+  z-index: 60;
+  width: 30vw;
+  height: 100vh;
+  background-color: white;
+  left: 70vw;
+  border: 1px solid black;
+}
+
+.buton_exit{
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  width: 2vw;
+  height: 4vh;
+  z-index: 61;
+  left: 69vw;
+  background-color: crimson;
+  color: white;
+}
+
+.buton_exit:hover{
+  background-color: white;
+  border: 1px solid crimson ;
+  color: crimson;
+}
+
+.buton_exit:active{
+  opacity: 0;
+}
+.box_menu_select{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.concepto_box{
+  background: rgb(49,88,49);
+  background: linear-gradient(90deg, rgba(49,88,49,1) 0%, rgba(9,121,16,1) 31%, rgba(0,255,68,1) 78%);
+  width: 20vw;
+  height: 7vh;
+  margin-top: 5vw;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

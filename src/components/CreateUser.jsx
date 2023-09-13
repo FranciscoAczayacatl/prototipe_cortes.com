@@ -18,7 +18,6 @@ export const CreateUser = () => {
   const dispatch = useDispatch();
 
   const handleCreate = async(dates) =>{
-    alert('entrto')
 
     const data = {
       firstname:dates.nombres,

@@ -1,0 +1,53 @@
+.container{
+  width: 96vw;
+  height: 45vh;
+  margin-top: 3vh;
+  border: 1px solid black;
+  margin-left: 1vw;
+  overflow:hidden;
+  border-radius: 14px;
+}
+.title{
+  text-align: center;
+}
+.entry_or_discharge{
+  width: 98vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+  margin-bottom: 1vh;;
+}
+.containe_costCenter_and_all{
+  width: 97vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+.center_class_concept{
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  margin-left: 5vw;
+  gap: 1vh;
+}
+.center_class_concept h1{
+  text-align: center;
+}
+.center_class_concept input{
+  width: 15vw;
+}
+.center_class_concept select{
+  width: 15vw;
+}
+.text_area{
+  width: 40vw;
+}
+.container_btn_submit_entry_discharge{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}

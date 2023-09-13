@@ -165,7 +165,6 @@ export const TablesDetail = () => {
             <h3 style={{textAlign:'center'}}>{formatDate(table.createdAt)}</h3>
             <div
               style={{
-                
                 display: "flex",
                 gap:'1vh',
                 alignContent:'space-around'
@@ -177,11 +176,41 @@ export const TablesDetail = () => {
             <div
               style={{
                 display: "flex",
+                gap:'1vh',
+                alignContent:'space-around'
+              }}
+            >
+              <h4>centro de costo:</h4>
+              <p>{table.cost_center}</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                gap:'1vh',
+                alignContent:'space-around'
+              }}
+            >
+              <h4>departamento:</h4>
+              <p>{table.departament}</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                gap:'1vh',
+                alignContent:'space-around'
+              }}
+            >
+              <h4>concepto:</h4>
+              <p>{table.discharge === "no" ?table.Entryconcept?.name:table.dischargeconcept?.name}</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
                 gap: "1vw",
               }}
             >
-              <h4>detalle:</h4>
-              <p>{table.detail}</p>
+              <h4>obsevaciones:</h4>
+              <p>{table.observations}</p>
             </div>
             <div
               style={{

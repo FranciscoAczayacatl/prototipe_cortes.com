@@ -1,0 +1,52 @@
+.body_conceps{
+  width: 100vw;
+  height: 100vh;
+  background-color: aqua;
+  background: url();
+}
+.box_concepts{
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.button_home_concept{
+  width: 5vw;
+  height: 8vh;
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  position: fixed;
+  left: 3vw;
+  top: 8vh;
+  text-decoration: none;
+  color: white;
+}
+.button_home_concept:hover{
+  background-color: white;
+  color: cadetblue;
+  border:  1px solid cadetblue;
+}
+.button_home_concept:active{
+  opacity: 0;
+}
+.form_concepts{
+  margin-top: 30vh;
+  width: 40vw;
+  height: 50vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+  border-radius: 14px;
+}
+
+.form_concepts input{
+  width: 20vw;
+}

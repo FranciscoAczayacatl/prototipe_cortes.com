@@ -7,6 +7,7 @@ import { BrowserRouter,Routes,Route} from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import LoadingScreen from './components/LoadingScreen';
 import { TablesDetail } from './pages/TablesDetail';
+import { Concepst } from './pages/Concepst';
 
 function App() {
   const isLoading=useSelector(state=>state.isLoading);
@@ -22,6 +23,7 @@ function App() {
           <Route path='/adm' element={<AdminDashBoard/>}/>
           <Route path='/user' element={<UserDashBoard/>}/>
           <Route path='/tables/:createdAt/:id/:branch_id' element={<TablesDetail/>}/>
+          <Route path='/addConcept' element={<Concepst/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
