@@ -1,0 +1,16 @@
+.img{
+  position:fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(121, 116, 116, 0.212);
+}
+.img img{
+  width: 60vw;
+  opacity: 0.5;
+}
+
+

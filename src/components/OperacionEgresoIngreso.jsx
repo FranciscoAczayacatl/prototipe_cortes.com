@@ -108,7 +108,7 @@ export const OperacionEgresoIngreso = () => {
               defaultValue=""
               rules={{ required: true }}
               render={({ field }) => (
-                <select {...field}>
+                <select {...field} style={{marginRight:'1vw'}}>
                   <option value="">Seleccione el concepto</option>
                   {
                     concept.map((item)=>(
@@ -140,7 +140,7 @@ export const OperacionEgresoIngreso = () => {
                 </select>
                 )}
               /> 
-              <div>
+              <div style={{marginTop:'1vh'}}>
                 <h3 htmlFor="entry">Total:</h3>
                 <input type="text" id="entry" {...register('entry')} />
               </div>
@@ -171,7 +171,7 @@ export const OperacionEgresoIngreso = () => {
        
         <div className='container_btn_submit_entry_discharge'>
         
-          <button className='btn_submit_entry_discharge'>Submit</button>
+          <button className='btn_submit_entry_discharge'><i className="fa-solid fa-upload fa-2x"></i></button>
         </div>
       </form>
     </div>

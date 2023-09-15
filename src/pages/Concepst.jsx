@@ -5,6 +5,7 @@ import { NavUsers } from "../components/NavUsers";
 import { NavAdm } from "../components/NavAdm";
 import '../css/concepts.css'
 import axios from "axios";
+import img from '../../public/logocom.png'
 
 
 export const Concepst = () => {
@@ -16,6 +17,7 @@ export const Concepst = () => {
   }
   return (
   <div className="body_conceps">
+    <div className="logotipo"><img src={img} alt="" /></div>
     {role == "User" ? <NavUsers/> : <NavAdm/>}
     <Link to={role == "User" ? "/user" : "/adm"}><div className="button_home_concept"><i className="fa-solid fa-house fa-2xl"></i></div></Link>
     <div className="box_concepts">

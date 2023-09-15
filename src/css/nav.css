@@ -1,12 +1,14 @@
 .nav_container{
-  background-color: rgba(93, 214, 114, 0.733);
+  background-color: rgba(93, 214, 113, 0.616);
   width: 100vw;
-  height: 7vh;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .nav_container img{
-  width: 4vw;
+  width: 10vw;
+  height: 10vh;
 }
 
 .nav_container h1{
@@ -47,6 +49,7 @@
   background-color: white;
   left: 70vw;
   border: 1px solid black;
+  top: 0vh;
 }
 
 .buton_exit{

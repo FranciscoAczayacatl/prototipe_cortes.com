@@ -6,6 +6,7 @@
   margin-left: 1vw;
   overflow:hidden;
   border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.445);
 }
 .title{
   text-align: center;
@@ -50,4 +51,27 @@
   width: 100vw;
   display: flex;
   justify-content: center;
+
+}
+.btn_submit_entry_discharge{
+  width: 5vw;
+  height: 7vh;
+  border: none;
+  background-color: crimson;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  border-radius: 14px;
+  color: white;
+}
+.btn_submit_entry_discharge:hover{
+  width: 5vw;
+  height: 7vh;
+  background-color: rgba(255, 255, 255, 0.445);
+  border: 1px solid crimson;
+  color: crimson;
+}
+
+.btn_submit_entry_discharge:active{
+  opacity: 0;
 }

@@ -1,9 +1,9 @@
 .body_conceps{
   width: 100vw;
   height: 100vh;
-  background-color: aqua;
-  background: url();
+
 }
+
 .box_concepts{
   width: 100vw;
   height: 50vh;
@@ -22,7 +22,7 @@
   border-radius: 14px;
   position: fixed;
   left: 3vw;
-  top: 8vh;
+  top: 12vh;
   text-decoration: none;
   color: white;
 }
@@ -49,4 +49,18 @@
 
 .form_concepts input{
   width: 20vw;
+}
+
+.logotipo{
+  position:fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logotipo img{
+  width: 60vw;
+  opacity: 0.5;
 }

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import img from '../../public/cortes.jpg'
+import img from '../../public/logocom.png'
 import '../css/nav.css'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
