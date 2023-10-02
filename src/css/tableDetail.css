@@ -1,0 +1,55 @@
+.btn_exel_convertide{
+  width: 6vw;
+  height: 6vh;
+  border: 3px solid #217346;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #217346;
+  border-radius: 14px;
+  position: fixed;
+  left: 25vw;
+}
+
+.btn_exel_convertide:hover{
+  background-color:#217346 ;
+  color: white;
+}
+.btn_exel_convertide:active{
+  opacity: 0;
+} 
+.img{
+  position:fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.img img{
+  width: 60vw;
+  opacity: 0.5;
+}
+
+.btn_home_usr_u{
+  width: 5vw;
+  height: 7vh;
+  text-decoration: none;
+  border:  3px solid cadetblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  color: cadetblue;
+  position: absolute;
+  top: 1vh;
+  left: 3px;
+
+}
+
+.btn_home_usr_u:hover{
+  background-color: cadetblue;
+  color: white;
+}

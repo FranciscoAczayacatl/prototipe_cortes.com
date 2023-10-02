@@ -10,7 +10,7 @@ export const ViewUsers = () => {
   const [estate, setEstate]=useState(false)
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/v1/users/')
+    axios.get('http://api.galax-sys.com/api/v1/users/')
     .then((res)=> getUser(res.data?.result))
   }, [estate])
 
@@ -21,7 +21,7 @@ export const ViewUsers = () => {
     const handleDeleteUser = () => {
     if (selectedUserId !== null) {
       
-      axios.delete(`http://localhost:8000/api/v1/users/${selectedUserId}`)
+      axios.delete(`http://api.galax-sys.com/api/v1/users/${selectedUserId}`)
         .then(() => {
           setEstate(true)
           alert('usuario eliminado');

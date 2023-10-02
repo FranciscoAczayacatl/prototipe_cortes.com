@@ -12,7 +12,7 @@ export const Concepst = () => {
   const role = useSelector((state) => state.role);
   const { register, handleSubmit, reset} = useForm();
   const submit = async(data) =>{
-    axios.post('http://localhost:8000/api/v1/concept/create', data);
+    axios.post('http://api.galax-sys.com/api/v1/concept/create', data);
     reset();
   }
   return (

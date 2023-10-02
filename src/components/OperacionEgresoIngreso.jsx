@@ -17,7 +17,7 @@ export const OperacionEgresoIngreso = () => {
   const [concept, setConcept]= useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/v1/concept/').
+    axios.get('http://api.galax-sys.com/api/v1/concept/').
     then((res) => setConcept(res.data?.result))
   }, [])
   
@@ -31,7 +31,7 @@ export const OperacionEgresoIngreso = () => {
 
     if(data.EntryOrDischarge=='1'){
         dispatch(setIsLoading(true));
-        await axios.post('http://localhost:8000/api/v1/entry/create',data)
+        await axios.post('http://api.galax-sys.com/api/v1/entry/create',data)
         .then(response => {
           console.log(response);
         })
@@ -46,7 +46,7 @@ export const OperacionEgresoIngreso = () => {
         reset();
     }else{
         dispatch(setIsLoading(true));
-        axios.post('http://localhost:8000/api/v1/discharges',data)
+        axios.post('http://api.galax-sys.com/api/v1/discharges',data)
         .then(response => {
           console.log(response);
         })

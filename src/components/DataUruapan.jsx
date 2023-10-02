@@ -13,7 +13,7 @@ export const DataUruapan = ({closeModal}) => {
   const [totals, setTotals] = useState([]);
   const updateData = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/api/v1/totals', {
+      const res = await axios.post('http://api.galax-sys.com/api/v1/totals', {
         branch_id: 1
       });
       setTotals(res.data.result);

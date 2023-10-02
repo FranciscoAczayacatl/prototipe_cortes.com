@@ -32,7 +32,7 @@ export const setRoleThunk = () => async(dispatch) =>{
   }
 
   try {
-    const response = await axios.post('http://localhost:8000/api/v1/roles',data ,{
+    const response = await axios.post('http://api.galax-sys.com/api/v1/roles',data ,{
       headers : config.headers,
 
     });

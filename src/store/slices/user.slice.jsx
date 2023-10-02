@@ -17,7 +17,7 @@ export const userSlice = createSlice({
 
 export const loginThunk = (data) => (dispatch) =>{
   dispatch(setIsLoading(true));
-  axios.post('http://localhost:8000/api/v1/auth/login', data)
+  axios.post('http://api.galax-sys.com/api/v1/auth/login', data)
       .then(response => {
         dispatch(setUser(response.data))
         dispatch(setIsLogin(true));

@@ -30,7 +30,7 @@ export const CreateUser = () => {
     console.log(data);
     dispatch(setIsLoading(true));
     
-    await axios.post('http://localhost:8000/api/v1/auth/register',data)
+    await axios.post('http://api.galax-sys.com/api/v1/auth/register',data)
     .then(response => {
       console.log(response);
       alert('usuario creado')
