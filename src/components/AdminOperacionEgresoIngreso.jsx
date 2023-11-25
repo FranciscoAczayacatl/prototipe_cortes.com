@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { setIsLoading } from "../store/slices/isLoading.slice";
 
 
@@ -7,11 +8,9 @@ import '../css/operacionEgresoIngreso.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-
-export const OperacionEgresoIngreso = () => {
-
-  const { register, handleSubmit, reset, control } = useForm();
-  const empresas_sucurales_id =useSelector(state=>state.user.user.empresas_sucurales_id);
+export const AdminOperacionEgresoIngreso = ({id}) => {
+    const { register, handleSubmit, reset, control } = useForm();
+  const empresas_sucurales_id = id;
   const user_id =useSelector(state=>state.user.user.id);
   const dispatch = useDispatch();
   const [concept, setConcept]= useState([]);
@@ -53,6 +52,8 @@ export const OperacionEgresoIngreso = () => {
   }, [empresas_sucurales_id])
   
 
+
+console.log(empresas_sucurales_id);
   const submit = async(data) =>{
     data.empresas_sucurales_id =  empresas_sucurales_id
     data.user_id = user_id
@@ -93,7 +94,6 @@ export const OperacionEgresoIngreso = () => {
         reset();
     }
   }
-
   return (
     <div className='container'>
       <h1 className='title'>Operaciones Ingreso-Egreso</h1>

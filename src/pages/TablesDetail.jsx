@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import "../css/tableDetail.css"
-import img from '../../public/logocom.png'
-import * as ExcelJS from 'exceljs';
+import img from '../../public/cortescom.png'
+// import * as ExcelJS from 'exceljs';
 
 function formatDate(dateString) {
   const options = { hour: "numeric", minute: "numeric", second: "numeric" };
@@ -13,7 +13,7 @@ function formatDate(dateString) {
 
 export const TablesDetail = () => {
   
-  const { createdAt, id, branch_id } = useParams();
+  const { createdAt, id, empresas_sucurales_id } = useParams();
   const [total, setTotal] = useState([]);
   const [entry, setEntry] = useState([]);
   const [discharge, setDischarge] = useState([]);
@@ -21,38 +21,54 @@ export const TablesDetail = () => {
   const todayYear = date.getFullYear();
   const todayMonth = date.getMonth();
   const todayDay = date.getDate();
-  const role = useSelector((state) => state.role);
+  const role = useSelector(state=>state.user.user.rol_id.nombre);
   const arr = [];
 
   useEffect(() => {
+    const data ={
+      todayYear: todayYear,
+      todayMonth: todayMonth +1,
+      todayDay: todayDay +1,
+      empresas_sucurales_id: Number(empresas_sucurales_id),
+    }
     axios
-      .post("http://localhost:8000/api/v1/totals/table", {
-        id: id,
-      })
+    .post(`${import.meta.env.VITE_GET_TOTAL_BY_ID}${id}`)
       .then((res) => {
         setTotal(res.data?.result);
-      });
-    axios
-      .post("http://localhost:8000/api/v1/entry/getEntry", {
-        todayYear: todayYear,
-        todayMonth: todayMonth + 1,
-        todayDay: todayDay,
-        branch: branch_id,
+      }).catch(error => {
+        if(error.response?.status===404){
+          alert('credenciales incorrectas')
+        }else if(error.response?.status===400){
+        alert(error.response?.data.message); 
+      }
       })
+      ;
+    axios
+      .post(`${import.meta.env.VITE_GET_ENTRY}`, data)
       .then((res) => {
         setEntry(res.data?.result);
-      });
-    axios
-      .post("http://localhost:8000/api/v1/discharges/getDischargers/", {
-        todayYear: todayYear,
-        todayMonth: todayMonth + 1,
-        todayDay: todayDay,
-        branch: branch_id,
+       
+      }).catch(error => {
+        if(error.response?.status===404){
+          alert('credenciales incorrectas')
+        }else if(error.response?.status===400){
+        alert(error.response?.data.message); 
+      }
       })
+      ;
+    axios.post(`${import.meta.env.VITE_GET_DISCHARGES}`, data)
       .then((res) => {
         setDischarge(res.data?.result);
-      });
-  }, [id, branch_id, todayDay, todayMonth, todayYear]);
+      }).catch(error => {
+        if(error.response?.status===404){
+          alert('credenciales incorrectas')
+        }else if(error.response?.status===400){
+        alert(error.response?.data.message); 
+      }
+      })
+      ;
+  }, [id, empresas_sucurales_id, todayDay, todayMonth, todayYear]);
+
   entry.forEach((i) => {
     i.discharge = "no";
     arr.push(i);
@@ -66,42 +82,42 @@ export const TablesDetail = () => {
     .slice()
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-  const converterData = () =>{
-    console.log(sortedData);
-    const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet('Sheet1');
+  // const converterData = () =>{
+  //   console.log(sortedData);
+  //   const workbook = new ExcelJS.Workbook();
+  //   const worksheet = workbook.addWorksheet('Sheet1');
 
-    worksheet.columns = [
-      { header: 'casificasion', width: 20, },
-      {header:'centro de costo', width:20},
-      {header:'departamento', width:15},
-      {header:'concepto', width:50}
-    ];
-    // Agregar los datos a la hoja de cálculo
-    sortedData.forEach((item) => {
-      worksheet.addRow([
-        item.classification,
-        item.cost_center,
-        item.departament,
-        item.discharge =='yes'? item.dischargeconcept.name: item.Entryconcept.name,
-        //item.discharge =='yes'? item
-      ]); // 
-    });
+  //   worksheet.columns = [
+  //     { header: 'casificasion', width: 20, },
+  //     {header:'centro de costo', width:20},
+  //     {header:'departamento', width:15},
+  //     {header:'concepto', width:50}
+  //   ];
+  //   // Agregar los datos a la hoja de cálculo
+  //   sortedData.forEach((item) => {
+  //     worksheet.addRow([
+  //       item.classification,
+  //       item.cost_center,
+  //       item.departament,
+  //       item.discharge =='yes'? item.dischargeconcept.name: item.Entryconcept.name,
+  //       //item.discharge =='yes'? item
+  //     ]); // 
+  //   });
 
-    // Crear un archivo Blob
-    workbook.xlsx.writeBuffer().then((buffer) => {
-      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-      const url = URL.createObjectURL(blob);
+  //   // Crear un archivo Blob
+  //   workbook.xlsx.writeBuffer().then((buffer) => {
+  //     const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  //     const url = URL.createObjectURL(blob);
 
-      // Crear un enlace de descarga
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${todayDay}/${todayMonth}/${todayYear}.xlsx`;
-      a.click();
-      URL.revokeObjectURL(url);
-    });
-  }
-
+  //     // Crear un enlace de descarga
+  //     const a = document.createElement('a');
+  //     a.href = url;
+  //     a.download = `${todayDay}/${todayMonth}/${todayYear}.xlsx`;
+  //     a.click();
+  //     URL.revokeObjectURL(url);
+  //   });
+  // }
+console.log(sortedData);
   return (
     <>
       <div>
@@ -212,7 +228,12 @@ export const TablesDetail = () => {
               }}
             >
               <h4>clasificasion:</h4>
-              <p>{table.classification}</p>
+              <p>
+              {table.discharge === "no"
+                  ? table.entryclasificasion.nombre
+                  : table.dischargeclasificasion.nombre}
+              </p>
+
             </div>
             <div
               style={{
@@ -222,7 +243,11 @@ export const TablesDetail = () => {
               }}
             >
               <h4>centro de costo:</h4>
-              <p>{table.cost_center}</p>
+              <p>{}
+              {table.discharge === "no"
+                  ? table.costcenterentry.nombre
+                  : table.costcenterdischarge.nombre}
+              </p>
             </div>
             <div
               style={{
@@ -232,7 +257,11 @@ export const TablesDetail = () => {
               }}
             >
               <h4>departamento:</h4>
-              <p>{table.departament}</p>
+              <p>
+              {table.discharge === "no"
+                  ? table.ingresodepartamentos.nombre
+                  : table.dischargedepartamentos.nombre}
+              </p>
             </div>
             <div
               style={{
@@ -242,7 +271,7 @@ export const TablesDetail = () => {
               }}
             >
               <h4>concepto:</h4>
-              <p>{table.discharge === "no" ?table.Entryconcept?.name:table.dischargeconcept?.name}</p>
+              <p>{table.discharge === "no" ?table.entryconcept.nombre:table.dischargeconcept.nombre}</p>
             </div>
             <div
               style={{
@@ -267,7 +296,7 @@ export const TablesDetail = () => {
                     : { color: "red" }
                 }
               >
-                {table.discharge === "no" ? table.total : `-${table.total}`}
+                {table.discharge === "no" ? table.total : `${table.total}`}
               </p>
             </div>
 
@@ -281,20 +310,20 @@ export const TablesDetail = () => {
               <p 
               style={{color:'royalblue'}}>
                 {table.discharge === "no"
-                  ? table.entryusers.firstname
-                  : table.dischargeuser.firstname}{" "}
+                  ? table.entryusers.nombres
+                  : table.dischargeusers.nombres}
                 {table.discharge === "no"
-                  ? table.entryusers.lastname
-                  : table.dischargeuser.lastname}
+                  ? table.entryusers.apellido_materno +' '+ table.entryusers.apellido_paterno
+                  : table.dischargeusers.apellido_materno +' '+ table.dischargeusers.apellido_paterno}
               </p>
             </div>
           </div>
         ))}
         </div>
 
-        <div className="btn_exel_convertide" onClick={()=>converterData()}>
+        {/* <div className="btn_exel_convertide" onClick={()=>converterData()}>
           <i className="fa-regular fa-file-excel fa-2x"></i>
-        </div>
+        </div> */}
       </div>
     </>
   );

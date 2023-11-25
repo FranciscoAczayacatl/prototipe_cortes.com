@@ -1,0 +1,41 @@
+.para{
+  width: 15vw;
+  display: flex;
+  gap: 2vh;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.para div{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.card_datail_utility{
+  width: 15vw;
+  height: 34vh;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(91, 143, 145);
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.445);
+  border-radius: 14px;
+}
+
+.card_datail_utility h1{
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  border-bottom: 2px solid black;
+}
+.box_datos_tables_detail_utility{
+  margin-top: 1vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  margin-left: 4vw;
+  gap: 5vh;
+}

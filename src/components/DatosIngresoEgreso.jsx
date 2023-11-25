@@ -12,34 +12,14 @@ function formatDate(dateString) {
 export const DatosIngresoEgreso = () => {
 
   const [totals, setTotals] = useState([]);
-  const branch = useSelector(state=>state.user.user.branch_id);
+  const branch = useSelector(state=>state.user.user.empresas_sucurales_id);
   const isLoading= useSelector(state=>state.isLoading);
   
-  
-  // const updateData = async () => {
-  //   try {
-  //     const res = await axios.post('http://localhost:8000/api/v1/totals', {
-  //       branch_id: branch
-  //     });
-  //     setTotals(res.data.result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   if (isLoading) {
-  //     updateData()
-  //   }else{
-  //     updateData()
-  //   }
-   
-  // },[isLoading ])
-
   useEffect(() => {
     const updateData = async () => {
       try {
-        const res = await axios.post('http://api.galax-sys.com/api/v1/totals', {
-          branch_id: branch
+        const res = await axios.post(`${import.meta.env.VITE_GET_ALL_TOTALS}`, {
+          empresas_sucurales_id: branch
         });
         setTotals(res.data.result);
       } catch (error) {
@@ -53,12 +33,11 @@ export const DatosIngresoEgreso = () => {
   }, [isLoading, branch]);
   
   const sortedData = totals.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
   return (
     <div className="box_datos" >
       {
         sortedData.map((items) =>(
-          <Link key={items.id} className='table' style={{textDecoration: 'none'}} to={`/tables/${items.createdAt}/${items.id}/${items.branch_id}`}>
+          <Link key={items.id} className='table' style={{textDecoration: 'none'}} to={`/tables/${items.createdAt}/${items.id}/${items.empresas_sucurales_id}`}>
             <div className='date'>
               <h4 style={{color:'black'}}>{formatDate(items.createdAt)}</h4>
             </div>

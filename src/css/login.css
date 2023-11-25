@@ -1,14 +1,17 @@
 .modal{
   width: 100vw;
   height: 100vh;
-  background-color: rgba(93, 214, 114, 0.733);
+  /* background-color:#5c4e93;
+  background-color: #5a88c2; */
+  background: rgb(92,78,147);
+  background: linear-gradient(90deg, rgba(92,78,147,1) 0%, rgba(90,136,194,1) 51%, rgba(131,236,238,1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .card_login{
   width: 30vw;
-  height: 80vh;
+  height: 85vh;
   background-color: #FFF;
   border-radius: 20px;
 }
@@ -18,10 +21,11 @@
   display:  flex;
   justify-content: center;
   align-items: center;
-
+  margin-bottom: 3vh;
+  margin-top: 2vh;
 }
 .img_cortes img{
-  width: 19vw;
+  width: 20vw;
   height: 30vh;
 }
 .form form{

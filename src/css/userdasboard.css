@@ -1,16 +1,137 @@
+body{
+  background-color: rgba(121, 116, 116, 0.212);
+  overflow-x:hidden ;
+}
 .img{
-  position:fixed;
+  position:absolute;
   z-index: -1;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(121, 116, 116, 0.212);
+
 }
 .img img{
-  width: 60vw;
+  width: 10vw;
+  height: 87vh;
   opacity: 0.5;
 }
 
+.btn_select_egreso_ingreso{
+  width: 30vw;
+  height: 20vh;
+  background-color: #5C5567;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  color: white;
+}
+.box_panel_user{
+  margin-top: 1vh;
+  margin-left: 3vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5vh;
+}
+.btn_home_ie{
+  width: 5vw;
+  height: 5vh;
+  text-decoration: none;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  
+  position: absolute;
+  top: 18px;
+  left: 85vw;
+  background-color: cadetblue;
+  color: white;
+}
 
+.btn_home_ie:hover{
+  color: cadetblue;
+  background-color: white;
+}
+
+.btn_options_nav{
+  position: absolute;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+  background-color: #5f9ea0;
+  color: white;
+  border-radius: 14px;
+  top: 3vh;
+  left: 92vw;
+}
+.btn_options_nav:hover{
+  background-color: white;
+  color: cadetblue;
+}
+
+.btn_options_nav:active{
+  opacity: 0;
+}
+.container_bnt_options_nav{
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vh;
+}
+.menu{
+  position: fixed;
+  z-index: 60;
+  width: 30vw;
+  height: 100vh;
+  background-color: hsla(198, 44%, 85%, 0.774);;
+  left: 70vw;
+  top: 0vh;
+  border-radius: 14px;
+}
+
+.buton_exit{
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  width: 2vw;
+  height: 4vh;
+  z-index: 61;
+  left: 70vw;
+  color: crimson;
+  font-size: 25px;
+  background: none;
+}
+
+
+.buton_exit:hover{
+  color: crimson;
+}
+
+.buton_exit:active{
+  opacity: 0;
+}
+.box_menu_select{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.concepto_box{
+  background-color: #5C5567;
+  width: 20vw;
+  height: 7vh;
+  margin-top: 5vw;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -64,6 +64,7 @@
   align-items: center;
   border-radius: 14px;
   color: white;
+  margin-top: 1vh;
 }
 .btn_submit_entry_discharge:hover{
   width: 5vw;

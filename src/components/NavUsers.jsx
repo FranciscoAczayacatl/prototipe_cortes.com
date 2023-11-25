@@ -1,42 +1,25 @@
 import { useSelector } from 'react-redux';
-import img from '../../public/logocom.png'
-import '../css/nav.css'
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-function Menu({falseMenu}) {
-  return (
-    <div className="menu" >
-      <button onClick={()=>{falseMenu()}} className='buton_exit'>X</button>
-      <div className='box_menu_select'>
-        <Link className='concepto_box' to={'/addConcept'}>
-          <h2>Agregar concepto</h2>
-        </Link>
-      </div>
-    </div>
-  );
-}
+import '../css/nav.css'
+import { Link } from 'react-router-dom';
+import Image from '../utils/getImage';
+
+
+
 
 export const NavUsers = () => {
-  const firstname = useSelector(state=>state.user.user.firstname);
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuVisible(!menuVisible);
-  };
-
-  const falseMenu =()=>{
-    setMenuVisible(!menuVisible);
-  }
+  const firstname = useSelector(state=>state.user.user.nombres);
+  const apellidoMaterno = useSelector(state=>state.user.user.apellido_materno);
+  const apellidoPaterno = useSelector(state=>state.user.user.apellido_paterno);
+  const empresa = useSelector(state=>state.user.user.empresas_id.nombre);
   return (
     <div className="nav_container">
-      <img src={img} alt="" />
-      <h1>Hola {firstname}</h1>
-      <div className='container_bnt_options_nav'>
-        <div className='btn_options_nav ' onClick={toggleMenu}><i className="fa-solid fa-list fa-lg"></i></div>
-        
-      </div>
-      {menuVisible && <Menu falseMenu={falseMenu} />}
+      <Link to={"/adm"} style={{textDecoration:'none', zIndex:'200'}} >
+        <img src={Image.getImageCompany(empresa)} alt="" />
+      </Link>
+      
+      <h1>Hola {firstname} {apellidoMaterno} {apellidoPaterno}</h1>
+
     </div>
   )
 }

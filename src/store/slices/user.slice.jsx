@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setIsLogin} from './isLogin.slice';
-import { setRoleThunk } from "./role.slice";
 import { setIsLoading } from './isLoading.slice';
 
 
@@ -17,11 +16,10 @@ export const userSlice = createSlice({
 
 export const loginThunk = (data) => (dispatch) =>{
   dispatch(setIsLoading(true));
-  axios.post('http://api.galax-sys.com/api/v1/auth/login', data)
+  axios.post(`${import.meta.env.VITE_AUTH_USER}`, data)
       .then(response => {
         dispatch(setUser(response.data))
         dispatch(setIsLogin(true));
-        dispatch(setRoleThunk());
       })
       .catch(error => {
         if(error.response?.status===404){

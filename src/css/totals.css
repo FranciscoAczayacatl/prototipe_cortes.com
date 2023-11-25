@@ -8,7 +8,7 @@
 }
 
 .boxBranch{
-  width: 23vw;
+  width: 26vw;
   height: 24vh;
   background-color: dimgrey;
   margin-top: 2vh;
@@ -21,16 +21,14 @@
 .boxBranch h1{
   text-align: center;
   color: white;
-  position: fixed;
+  position: absolute;
 }
 .boxBranch img{
   border-radius: 14px;
-  
+  height: 24vh;
+  width: 26vw;
 }
-.tin{
-  width: 50vw;
-  height: 25vh;
-}
+
 .zoom-image {
   transition: transform 0.3s; /* Agrega una transición suave */
 }

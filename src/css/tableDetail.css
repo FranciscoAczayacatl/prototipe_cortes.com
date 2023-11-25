@@ -7,7 +7,7 @@
   align-items: center;
   color: #217346;
   border-radius: 14px;
-  position: fixed;
+  position: absolute;
   left: 25vw;
 }
 

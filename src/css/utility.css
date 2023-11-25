@@ -1,0 +1,127 @@
+.btn_home_utility{
+  width: 5vw;
+  height: 5vh;
+  text-decoration: none;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  position: absolute;
+  top: 18px;
+  left: 85vw;
+  background-color: cadetblue;
+  color: white;
+}
+
+.btn_home_utility:hover{
+  color: cadetblue;
+  background-color: white;
+}
+.form_utilidad{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid black ;
+}
+
+.box_utility{
+  width: 100vw;
+  height: 54vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+.cja_utilidad{
+  width: 70vw;
+  height: 52vh;
+  border-radius: 14px;
+  border: 2px solid black;
+  background-color: rgba(255, 255, 255, 0.445);
+  margin-top: 1vh;
+}
+.display_utility{
+  display: flex;
+  width: 70vw;
+  gap: 10vh;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.container_btn_submit_utility{
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3vh;
+}
+.btn_submit_utility{
+  width: 5vw;
+  height: 7vh;
+  border: none;
+  background-color: crimson;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  border-radius: 14px;
+  color: white;
+  margin-top: 1vh;
+}
+.btn_submit_utility:hover{
+  width: 5vw;
+  height: 7vh;
+  background-color: rgba(255, 255, 255, 0.445);
+  border: 1px solid crimson;
+  color: crimson;
+}
+
+.btn_submit_utility:active{
+  opacity: 0;
+}
+
+.box_utility h1{
+  margin-top: 1vh;
+}
+.display_utility input{
+  width: 15vw;
+  height: 4vh;
+  border-radius: 14px;
+  border: 2px solid black;
+  text-align: center;
+  margin-top: 1vh;
+}
+.box_utility_tables{
+  width: 100vw;
+  background-color: rgba(0, 255, 255, 0);
+}
+
+.table_utility{
+  width: 25vw;
+  height: 34vh;
+  border: 2px solid black;
+  border-radius: 14px;
+  background-color: rgb(255, 255, 255);
+}
+.table_date_utility{
+  border-bottom: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25vw;
+  height: 5vh;
+}
+.box_datos_utility{
+  margin-top: 1vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  margin-left: 4vw;
+}
+.box_flex_day_utility{
+  display: flex;
+}
+.box_flex_day_utility div{
+  width: 20vh;
+  text-align: center;
+}

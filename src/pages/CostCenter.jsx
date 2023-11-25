@@ -5,11 +5,10 @@ import { NavUsers } from "../components/NavUsers";
 import { NavAdm } from "../components/NavAdm";
 import '../css/concepts.css'
 import axios from "axios";
-
 import Image from "../utils/getImage";
 
 
-export const Concepst = () => {
+export const CostCenter = () => {
   const role = useSelector(state=>state.user.user.rol_id.nombre);
   const empresa = useSelector(state=>state.user.user.empresas_sucurales_id);
   const empresas = useSelector(state=>state.user.user.empresas_id.nombre);
@@ -17,7 +16,7 @@ export const Concepst = () => {
   const submit = async(data) =>{
     data.empresas_sucurales_id=empresa
     console.log(data);
-    axios.post(`${import.meta.env.VITE_CREATE_CONCEPT}`, data);
+    axios.post(`${import.meta.env.VITE_CREATE_COST_CENTER}`, data);
     reset();
   }
   return (
@@ -27,7 +26,7 @@ export const Concepst = () => {
     <Link to={role == "User" ? "/user" : "/adm"}><div className="button_home_concept"><i className="fa-solid fa-house fa-2xl"></i></div></Link>
     <div className="box_concepts">
       <form onSubmit={handleSubmit(submit)} className="form_concepts" >
-        <h1 htmlFor="nombre">Ingrese el concepto:</h1>
+        <h1 htmlFor="nombre">Ingrese el centro de costo:</h1>
         <input type="text" name="nombre" id="nombre" {...register('nombre')} required  />
         <button>Submit</button>
       </form>

@@ -1,52 +1,53 @@
-import  { useState } from 'react';
+import  { useEffect, useState } from 'react';
 import '../css/totals.css';
-import img from '../../public/uruapan.jpg'
-import img2 from '../../public/tin.jpg'
-import { DataUruapan } from './DataUruapan';
-import { DataTinguindin } from './DataTinguindin';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Image from '../utils/getImage';
+
 
 
 
 export const Totals = () => {
-  // Estado para controlar si se muestra el modal de Uruapan
-  const [showUruapanModal, setShowUruapanModal] = useState(false);
+  
+  
+  const company = useSelector(state=>state.user.user.empresas_id.id);
+  const [branchdata, setbranchdata ]= useState([]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    
+    const data ={
+      empresa_id:company
+    }
+    
+    axios.post(`${import.meta.env.VITE_GET_COMPANIES_AND_BRANCHES}`,data)
+    .then((res)=>{
+      setbranchdata(res.data?.result)
+    })
+    .catch(error => alert(error))
+  }, [company, dispatch])
+  
 
-  // Estado para controlar si se muestra el modal de Tinguindin
-  const [showTinguindinModal, setShowTinguindinModal] = useState(false);
 
-  const uruapanClick = () => {
-    setShowUruapanModal(true);
-  };
 
-  const tinguindinClick = () => {
-    setShowTinguindinModal(true);
-  };
-
-  // Función para cerrar ambos modales
-  const closeModal = () => {
-    setShowUruapanModal(false);
-    setShowTinguindinModal(false);
-  };
-
+  console.log(branchdata);
   return (
+    <>
+    
     <div className='branches'>
-      <div className="boxBranch" onClick={uruapanClick} >
-      <img src={img} alt="" className="zoom-image"/>
-        <h1>Uruapan</h1>
-        
-      </div>
-      <div className="boxBranch" onClick={tinguindinClick}>
-      <img src={img2} alt="" className="zoom-image tin"/>
-        <h1>Tinguindin</h1>
-      </div>
-
-      {showUruapanModal && (
-        <DataUruapan closeModal={closeModal}/>
-      )}
-
-      {showTinguindinModal && (
-       <DataTinguindin closeModal={closeModal}/>
-      )}
+      {
+        branchdata.map(branche=>(
+          <Link key={branche.id} className="boxBranch" to={`/admselection/${branche.id}`} >
+            <img src={Image.getImageBranch(branche.branch_companie_brances.nombre)} alt="" className="zoom-image"/>
+            <h1>{branche.branch_companie_brances.nombre}</h1>
+          </Link>
+          
+        ))
+      }
     </div>
+
+
+    </>
+
   );
 };
