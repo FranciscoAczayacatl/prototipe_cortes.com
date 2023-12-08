@@ -12,7 +12,7 @@ export const SuperAdminUsers = () => {
     const data = {
       empresa_id:id
     }
-    axios.post('http://localhost:8000/api/v1/users/', data)
+    axios.post('http://api.galax-sys.com/api/v1/users/', data)
     .then(res => setUsers(res.data.result))
     .catch(error => alert(error));
   }, [id])
