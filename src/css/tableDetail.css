@@ -26,11 +26,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  overflow-y: hidden;
 }
 .img img{
   width: 60vw;
   opacity: 0.5;
+  
 }
 
 .btn_home_usr_u{

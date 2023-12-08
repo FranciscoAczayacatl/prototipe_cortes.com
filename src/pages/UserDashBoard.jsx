@@ -2,9 +2,12 @@
 import { NavUsers } from "../components/NavUsers"
 
 import '../css/userdasboard.css'
-import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import Image from "../utils/getImage"
+import { setIsLoading } from "../store/slices/isLoading.slice"
+import { setUser } from "../store/slices/user.slice"
+import { setIsLogin } from "../store/slices/isLogin.slice"
 // import { OptionsUsers } from "../components/OptionsUsers"
 
 
@@ -14,6 +17,18 @@ const UserDashBoard = () => {
   // const updateDataIngresoEgreso = useRef();
   const empresa = useSelector(state=>state.user.user.empresas_id.nombre);
   const sucursal = useSelector(state=>state.user.user.sucursales_id.nombre);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(setIsLoading(true));
+    setTimeout(() => {
+      dispatch(setUser([]));
+      dispatch(setIsLogin(false));
+      navigate("/")
+      dispatch(setIsLoading(false));
+   }, 1000);
+
+  };
   return (
     <div className="box_dashboard_user">
       <div className="img"><img src={Image.getImageCompany(empresa)} alt="" /></div>
@@ -31,6 +46,9 @@ const UserDashBoard = () => {
         </Link>
 
       </div>
+      <div className='btn_loguot' onClick={()=>{handleLogout()}}>
+      <i className="fa-solid fa-arrow-right-from-bracket"></i>
+      </div >
     </div>
   )
 }

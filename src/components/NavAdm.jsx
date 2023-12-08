@@ -15,7 +15,7 @@ export const NavAdm= () => {
   return (
     <>
     <div className="nav_container" style={{display:'flex'}}>
-      <Link to={'/adm'}><img src={`../${Image.getImageCompany(empresa)}`} alt="" /></Link>
+      <Link to={'/adm'} style={empresa == 'Galaxsys'?{backgroundColor:'white'}:{background:'none'}}><img src={`../${Image.getImageCompany(empresa)}`} alt="" /></Link>
       <h1>Hola {firstname} {apellidoMaterno} {apellidoPaterno}</h1>
     </div>
 

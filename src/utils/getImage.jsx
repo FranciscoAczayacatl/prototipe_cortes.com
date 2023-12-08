@@ -25,6 +25,10 @@ class Image {
       return '../../public/CLOSSET.PNG'
     }else if(company == 'LIVERPACAS'){
       return '../../public/Liverpacas.PNG'
+    }else if(company == 'Galaxsys'){
+      return '../../public/GalaxSys.png'
+    } else if(company == 'Catalogo Alexa'){
+      return '../../public/alexa.png'
     }
   }
 }

@@ -193,7 +193,7 @@ export const OperacionEgresoIngreso = () => {
           </div>
           <div className='text_area'> 
             <h3 htmlFor="observations">Observaciones:</h3>
-        <textarea name="observations" id="observations" cols="55" rows="8" {...register('observations')} required ></textarea><br />
+        <textarea name="observations" cols="55" rows="8" {...register('observations')} required ></textarea><br />
         </div>
         </div>
         

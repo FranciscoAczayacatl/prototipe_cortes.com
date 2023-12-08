@@ -1,0 +1,52 @@
+.box_cretate_company{
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.body_create_company{
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.form_concepts{
+  margin-top: 30vh;
+  width: 40vw;
+  height: 50vh;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.514);
+  color: rgb(18, 92, 50);
+  overflow-y: hidden;
+}
+
+.form_concepts input{
+  width: 20vw;
+  height: 2vh;
+  border-radius: 14px;
+  border: 1px solid black;
+  text-align: center;
+  padding: 1vh;
+}
+.form_concepts button{
+  width: 5vw;
+  height: 5vh;
+  border-radius: 14px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.form_concepts button:hover{
+  background-color: rgba(250, 235, 215, 0);
+  color: cornflowerblue;
+  border: solid;
+}

@@ -1,0 +1,33 @@
+.box_companies{
+  margin-top: 8vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  gap: 3vh;
+  margin-left: 4vw;
+}
+
+.btn_add_industry{
+  position: absolute;
+  top: 11vh;
+  left: 89vw;
+  width: 5vw;
+  height: 7vh;
+  border-radius: 14px;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2vw;
+}
+
+.btn_add_industry:hover{
+  background-color: rgba(240, 248, 255, 0);
+  color: tomato;
+  border: 1px solid tomato;
+}
+
+.btn_add_industry:active{
+  opacity: 0;
+}

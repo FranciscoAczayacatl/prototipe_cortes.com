@@ -1,0 +1,45 @@
+.box_suc_btn{
+  width: 30vw;
+  height: 12vh;
+  background-color: rgb(62, 185, 140);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 14px;
+  font-size: 20px;
+  gap: 1vh;
+}
+
+.box_admin_suc_opt{
+  width: 100vw;
+  height: 15vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.branchessuper{
+  margin-top: 5vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+  margin-left: 4vw;
+}
+.name_compani_super{
+  width: 100vw;
+  height: 5vh;
+  background-color: indigo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.name_compani_super p{
+  font-weight: 800;
+  font-size: 5vh;
+}

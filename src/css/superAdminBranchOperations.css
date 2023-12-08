@@ -1,0 +1,22 @@
+.box_admin_suc_opt_b{
+  width: 100vw;
+  margin-top: 5vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  gap: 5vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+.box_suc_btn_b{
+  width: 27vw;
+  height: 12vh;
+  background-color: rgb(62, 185, 140);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 14px;
+  font-size: 20px;
+  gap: 1vh;
+}

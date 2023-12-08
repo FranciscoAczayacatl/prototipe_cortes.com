@@ -25,6 +25,13 @@ import { AdminDepartamens } from './pages/AdminDepartamens';
 import { AdminClassification } from './pages/AdminClassification';
 import { AdminSelecionUtilidad } from './components/AdminSelecionUtilidad';
 import { AdminUtility } from './pages/AdminUtility';
+import { SuperAdminDashBoard } from './pages/SuperAdminDashBoard';
+import { SuperAdminCompani } from './pages/SuperAdminCompani';
+import { SuperAdminUsers } from './pages/SuperAdminUsers';
+import { SuperAdminAddUser } from './pages/SuperAdminAddUser';
+import { CreateCompany } from './pages/CreateCompany';
+import { SuperAdminCreateBranch } from './pages/SuperAdminCreateBranch';
+import { SuperAdminBranchOperations } from './pages/SuperAdminBranchOperations';
 
 function App() {
   const isLoading=useSelector(state=>state.isLoading);
@@ -38,6 +45,7 @@ function App() {
         <Route element={<ProtectedRoutes/>}>
           <Route path='/adm' element={<AdminDashBoard/>}/>
           <Route path='/user' element={<UserDashBoard/>}/>
+          <Route path= '/sudo' element={<SuperAdminDashBoard/>}/>
           <Route path='/tables/:createdAt/:id/:empresas_sucurales_id' element={<TablesDetail/>}/>
           <Route path='/addConcept' element={<Concepst/>}/>
           <Route path='/addcentercost' element={<CostCenter/>}/>
@@ -57,6 +65,13 @@ function App() {
           <Route path='/admin/ingresoegreso/addclassification/:id' element={<AdminClassification/>}/>
           <Route path='/admin/utility/:id' element={<AdminSelecionUtilidad/>}/>
           <Route path='/admin/utility/selector/:id' element={<AdminUtility/>}/>
+          <Route path='/company/created' element={<CreateCompany/>}/>
+          <Route path='/company/branch/created/:id' element={<SuperAdminCreateBranch/>}/>
+          <Route path='/company/:id' element={<SuperAdminCompani/>}/>
+          <Route path='/company/viewusers/:id/:empresa_id/:sucursal_id' element={<SuperAdminUsers/>}/>
+          <Route path='/company/addusers/:empresa_id/:sucursal_id/:es_id' element={<SuperAdminAddUser/>}/>
+          <Route path='/company/:empresa_id/:sucursal_id/:es_id' element={<SuperAdminBranchOperations/>}/>
+
         </Route>
       </Routes>
     </BrowserRouter>

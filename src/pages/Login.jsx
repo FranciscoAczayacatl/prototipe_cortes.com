@@ -53,6 +53,8 @@ const Login = () => {
       navigate('/adm')
     }else if(roles =='User'){
       navigate('/user')
+    }else if(roles =='Superadmin'){
+      navigate('/sudo')
     }else{
       navigate('/')
     }
